@@ -33,6 +33,34 @@ public class UserController {
     public ResponseEntity<List<Users>> UpdateUser(@RequestBody Users users) {
         return new ResponseEntity<List<Users>>(usersService.update(users), HttpStatus.OK);
     }
+    @RequestMapping(value="/user/{id}" , method = RequestMethod.DELETE)
+    public ResponseEntity deleteUser(@PathVariable("id") int id) {
+        try {
+            usersService.delete(id);
+            return new ResponseEntity<>(HttpStatus.OK);
+        }catch (Exception ex) {
+            return new ResponseEntity<>(ex, HttpStatus.CONFLICT);
+        }
+    }
+    @RequestMapping(value="/user/all" , method = RequestMethod.DELETE)
+    public ResponseEntity deleteUserAll() {
+        try {
+            usersService.deleteAll();
+            return new ResponseEntity<>(HttpStatus.OK);
+        }catch (Exception ex) {
+            return new ResponseEntity<>(ex, HttpStatus.CONFLICT);
+        }
+    }
+    @RequestMapping(value="/user/all" , method = RequestMethod.DELETE)
+    public ResponseEntity<Boolean>isUserExist(Users users) {
+        boolean b=false;
+        try {
+           b= usersService.isUserExist(users);
+            return new ResponseEntity<>(b,HttpStatus.OK);
+        }catch (Exception ex) {
+            return new ResponseEntity<>(b, HttpStatus.CONFLICT);
+        }
+    }
 
 
 

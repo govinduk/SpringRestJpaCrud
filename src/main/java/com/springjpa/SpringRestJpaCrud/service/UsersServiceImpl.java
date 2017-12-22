@@ -38,4 +38,15 @@ public class UsersServiceImpl {
     public void deleteAll(){
         userService.deleteAll();
     }
+    public boolean isUserExist(Users users){
+        for (Users userses : getAllUsers()){
+            if(userses.equals(users)){
+                return  true;
+
+            }
+
+        }
+        return  false;
+
+    }
 }
