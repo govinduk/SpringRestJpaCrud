@@ -25,5 +25,16 @@ public class UserController {
     public ResponseEntity<List<Users>> saveUSer(@RequestBody Users users) {
         return new ResponseEntity<List<Users>>(usersService.saveUser(users), HttpStatus.OK);
     }
+    @RequestMapping(value="/user/all" , method = RequestMethod.GET)
+    public ResponseEntity<List<Users>> getAllUsers() {
+        return new ResponseEntity<List<Users>>(usersService.getAllUsers(), HttpStatus.OK);
+    }
+    @RequestMapping(value="/user/{id}" , method = RequestMethod.PUT)
+    public ResponseEntity<List<Users>> UpdateUser(@RequestBody Users users) {
+        return new ResponseEntity<List<Users>>(usersService.update(users), HttpStatus.OK);
+    }
+
+
+
 
 }
