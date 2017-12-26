@@ -51,7 +51,7 @@ public class UserController {
             return new ResponseEntity<>(ex, HttpStatus.CONFLICT);
         }
     }
-    @RequestMapping(value="/user/all" , method = RequestMethod.DELETE)
+    @RequestMapping(value="/user/exist" , method = RequestMethod.DELETE)
     public ResponseEntity<Boolean>isUserExist(Users users) {
         boolean b=false;
         try {
