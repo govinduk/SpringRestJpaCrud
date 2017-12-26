@@ -42,9 +42,7 @@ public class UsersServiceImpl {
         for (Users userses : getAllUsers()){
             if(userses.equals(users)){
                 return  true;
-
             }
-
         }
         return  false;
 
